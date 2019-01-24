@@ -12,7 +12,7 @@ export function buildHUD() {
   // maintTitle H1 - Creation du titre de l'application
   var mainTitle = document.createElement('h1');
   mainTitle.setAttribute("id", "mainTitle");
-  mainTitle.innerHTML = "WWOOOSH !";
+  mainTitle.innerHTML = `${title}`;
   document.getElementById('hud').appendChild(mainTitle);
 
 }
