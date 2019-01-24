@@ -22,10 +22,20 @@ export function buildMainFrame() {
   // mainFrame DIV - Creation de la mainFrame qui va contenir le jeu
   var mainFrame = document.createElement('div');
   mainFrame.setAttribute("id", "mainFrame");
+  mainFrame.style.position = "relative";
   document.getElementById('root').appendChild(mainFrame);
   document.getElementById('mainFrame').style.height = "600px";
   document.getElementById('mainFrame').style.width = "800px";
   document.getElementById('mainFrame').style.borderStyle = "solid";
 
+  var player = document.createElement('div');
+  player.setAttribute("id", "player");
+  player.style.height = "20px";
+  player.style.width = "20px";
+  player.style.background = "green";
+  player.style.position = "absolute";
+  player.style.left = "0";
+  player.style.top = "0";
 
+  mainFrame.appendChild(player);
 }
