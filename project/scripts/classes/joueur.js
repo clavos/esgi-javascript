@@ -4,3 +4,5 @@ class Joueur {
     this.vie = vie;
   }
 }
+
+export { Joueur }

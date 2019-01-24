@@ -1,5 +1,9 @@
+import { Joueur } from '../classes/joueur.js'
+
 // HUD - Titre, infos, score, etc
 export function buildHUD() {
+
+  var player = new Joueur("Alexandre", 40);
 
   //Padding ROOT
   document.getElementById('root').style.padding = "10px";
@@ -12,8 +16,10 @@ export function buildHUD() {
   // maintTitle H1 - Creation du titre de l'application
   var mainTitle = document.createElement('h1');
   mainTitle.setAttribute("id", "mainTitle");
-  mainTitle.innerHTML = `${title}`;
+  mainTitle.innerHTML = "{{nom}}";
   document.getElementById('hud').appendChild(mainTitle);
+
+  document.getElementById("root").innerHTML = document.getElementById("root").innerHTML.interpolate(player);
 
 }
 
@@ -38,4 +44,26 @@ export function buildMainFrame() {
   player.style.top = "0";
 
   mainFrame.appendChild(player);
+}
+
+export function initiate(){
+  Object.prototype.prop_access = function(accessString){
+    var attributesTab = accessString.split('.');
+    var temp = this;
+    for (let index=0; index<attributesTab.length; index++ ){
+      let word = attributesTab[index];
+      if(temp[word] != null){
+        temp = temp[word];
+      }else{
+        throw new UndefinedPropertyError(accessString,word,temp);
+      }
+    }
+    return temp;
+  }
+
+  String.prototype.interpolate = function(objectToAccess){
+    return this.replace(/\{{(\w+)\}}/g, function(match, expr) {
+        return objectToAccess.prop_access(expr);
+    });
+  }
 }
