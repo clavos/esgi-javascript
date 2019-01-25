@@ -1,6 +1,7 @@
 import { Joueur } from '../classes/joueur.js'
+import { Monstre } from '../classes/monstre.js'
 
-var hero = new Joueur("Joueur1", 40, 256);;
+var hero = new Joueur("Joueur1", 40, 256);
 // HUD - Titre, infos, score, etc
 export function buildHUD() {
   //Padding ROOT
@@ -63,6 +64,7 @@ monsterImage.src = "images/monstre.png";
 
 // Objet
 var monster = {};
+var monster = new Monstre("Monstre1", 40);
 var monstersCaught = 0;
 
 // Handle keyboard controls
@@ -127,12 +129,6 @@ var render = function () {
     ctx.drawImage(monsterImage, monster.x, monster.y);
   }
 
-  // Score
-  ctx.fillStyle = "rgb(250, 250, 250)";
-  ctx.font = "24px Helvetica";
-  ctx.textAlign = "left";
-  ctx.textBaseline = "top";
-  // ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
   document.getElementById("scoreBoard").innerHTML = "Score : " + hero.score;
 };
 
