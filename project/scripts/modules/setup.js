@@ -26,7 +26,7 @@ export function buildHUD() {
 
 export function buildMainFrame() {
 
-  // Create the canvas
+  //canvas
 var canvas = document.createElement("canvas");
 canvas.setAttribute("id", "canvas");
 var ctx = canvas.getContext("2d");
@@ -36,7 +36,7 @@ document.getElementById('root').appendChild(canvas);
 document.getElementById('canvas').style.borderStyle = "solid";
 
 
-// Background image
+// Background
 var bgReady = false;
 var bgImage = new Image();
 bgImage.onload = function () {
@@ -44,7 +44,7 @@ bgImage.onload = function () {
 };
 bgImage.src = "images/background.png";
 
-// Hero image
+// Hero
 var heroReady = false;
 var heroImage = new Image();
 heroImage.onload = function () {
@@ -52,7 +52,7 @@ heroImage.onload = function () {
 };
 heroImage.src = "images/hero.png";
 
-// Monster image
+// Monstre
 var monsterReady = false;
 var monsterImage = new Image();
 monsterImage.onload = function () {
@@ -60,8 +60,8 @@ monsterImage.onload = function () {
 };
 monsterImage.src = "images/monstre.png";
 
-// Game objects
-var hero = new Joueur("Alexandre", 40, 256);
+// Objet
+var hero = new Joueur("Joueur1", 40, 256);
 var monster = {};
 var monstersCaught = 0;
 
@@ -76,17 +76,17 @@ addEventListener("keyup", function (e) {
   delete keysDown[e.keyCode];
 }, false);
 
-// Reset the game when the player catches a monster
+// Reset quand on touche le monstre
 var reset = function () {
   hero.x = canvas.width / 2;
   hero.y = canvas.height / 2;
 
-  // Throw the monster somewhere on the screen randomly
+  // Deplace le monstre
   monster.x = 32 + (Math.random() * (canvas.width - 64));
   monster.y = 32 + (Math.random() * (canvas.height - 64));
 };
 
-// Update game objects
+// Update
 var update = function (modifier) {
   if (38 in keysDown) { // Player holding up
     hero.y -= hero.speed * modifier;
@@ -101,7 +101,7 @@ var update = function (modifier) {
     hero.x += hero.speed * modifier;
   }
 
-  // Are they touching?
+  // Collision
   if (
     hero.x <= (monster.x + 32)
     && monster.x <= (hero.x + 32)
@@ -113,7 +113,7 @@ var update = function (modifier) {
   }
 };
 
-// Draw everything
+// Draw
 var render = function () {
   if (bgReady) {
     ctx.drawImage(bgImage, 0, 0);
@@ -145,11 +145,11 @@ var main = function () {
 
   then = now;
 
-  // Request to do this again ASAP
+  
   requestAnimationFrame(main);
 };
 
-// Cross-browser support for requestAnimationFrame
+// Cross-browser support
 var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
