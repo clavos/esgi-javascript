@@ -1,6 +1,6 @@
 import { Joueur } from '../classes/joueur.js'
 
-var hero = new Joueur("Joueur1", 40, 256);;
+var hero = new Joueur("Joueur1", 40, 256);
 // HUD - Titre, infos, score, etc
 export function buildHUD() {
   //Padding ROOT
