@@ -158,6 +158,12 @@ reset();
 main();
 }
 export function initiate(){
+  function UndefinedPropertyError(path, property, object) {
+    var allProperty = Object.keys(object);
+    this.message = "Property '"+property+"' not exist for path '"+path+"', expected one of : ["+allProperty.join(",")+"]";
+    this.name = "UndefinedPropertyError";
+  }
+
   Object.prototype.prop_access = function(accessString){
     var attributesTab = accessString.split('.');
     var temp = this;
@@ -174,7 +180,11 @@ export function initiate(){
 
   String.prototype.interpolate = function(objectToAccess){
     return this.replace(/\{{(\w+)\}}/g, function(match, expr) {
-        return objectToAccess.prop_access(expr);
+        try{
+          return objectToAccess.prop_access(expr);
+        }catch(e){
+          console.error(e.message);
+        }
     });
   }
 }
