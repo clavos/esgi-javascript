@@ -6,11 +6,11 @@ class Personnage {
   	}
 
   	get nom() {
-    	return this.nom();
+    	return this._nom;
   	}
 
   	get vie() {
-    	return this.vie();
+    	return this._vie;
   	}
   	set nom(nNom){
 		if(nNom){ 
