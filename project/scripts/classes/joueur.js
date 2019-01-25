@@ -8,18 +8,18 @@ class Joueur extends Personnage{
 	}
 
 	get speed() {
-    return this._speed;
-  }
-  set speed(nSpeed){
+    	return this._speed;
+  	}
+  	set speed(nSpeed){
 		if(nSpeed){ 
 	    	this._speed = nSpeed;
 		}
-  }
+  	}
   
-  get score() {
-    return this._score;
-  }
-  set score(nScore){
+  	get score() {
+    	return this._score;
+  	}
+  	set score(nScore){
 		if(nScore){ 
 	    	this._score = nScore;
 		}
