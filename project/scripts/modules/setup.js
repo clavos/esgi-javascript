@@ -63,6 +63,7 @@ monsterImage.src = "images/monstre.png";
 
 // Objet
 var monster = {};
+var monster = new Monstre("Monstre1", 40);
 var monstersCaught = 0;
 
 // Handle keyboard controls
