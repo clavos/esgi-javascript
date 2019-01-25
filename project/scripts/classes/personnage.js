@@ -1,6 +1,6 @@
 class Personnage {
 
-	constructor(nom, vie, speed) {
+	constructor(nom, vie) {
     	this.nom = nom;
     	this.vie = vie;
   	}
