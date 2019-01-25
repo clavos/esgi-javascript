@@ -7,7 +7,7 @@ class Joueur extends Personnage{
 	}
 
 	get speed() {
-    	return this._vie;
+    	return this._speed;
   	}
   	set speed(nSpeed){
 		if(nSpeed){ 

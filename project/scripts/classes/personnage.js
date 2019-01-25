@@ -14,7 +14,7 @@ class Personnage {
   	}
   	set nom(nNom){
 		if(nNom){ 
-	    	this._name = nNom;
+	    	this._nom = nNom;
 		}
 	}
 
