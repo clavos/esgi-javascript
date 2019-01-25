@@ -1,6 +1,7 @@
 import { changeFrontColor } from './modules/preferences.js'
-import { buildHUD, buildMainFrame } from './modules/setup.js'
+import { buildHUD, buildMainFrame, initiate } from './modules/setup.js'
 
-changeFrontColor()
+initiate()
 buildHUD()
 buildMainFrame()
+changeFrontColor()
