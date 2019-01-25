@@ -1,4 +1,5 @@
 import { Joueur } from '../classes/joueur.js'
+import { Monstre } from '../classes/monstre.js'
 
 var hero = new Joueur("Joueur1", 40, 256);
 // HUD - Titre, infos, score, etc
