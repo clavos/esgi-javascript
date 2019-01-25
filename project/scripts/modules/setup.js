@@ -1,10 +1,8 @@
 import { Joueur } from '../classes/joueur.js'
 
+var hero = new Joueur("Joueur1", 40, 256);;
 // HUD - Titre, infos, score, etc
 export function buildHUD() {
-
-  var player = new Joueur("Alexandre", 40);
-
   //Padding ROOT
   document.getElementById('root').style.padding = "10px";
 
@@ -18,10 +16,13 @@ export function buildHUD() {
   mainTitle.setAttribute("id", "mainTitle");
   mainTitle.innerHTML = "{{nom}}";
 
+  var scoreBoard = document.createElement('div');
+  scoreBoard.innerHTML = "Score : {{_score}}";
+  scoreBoard.setAttribute("id", "scoreBoard");
   document.getElementById('hud').appendChild(mainTitle);
+  document.getElementById('hud').appendChild(scoreBoard);
 
-  document.getElementById("root").innerHTML = document.getElementById("root").innerHTML.interpolate(player);
-
+  document.getElementById("hud").innerHTML = document.getElementById("hud").innerHTML.interpolate(hero);
 }
 
 export function buildMainFrame() {
@@ -61,7 +62,6 @@ monsterImage.onload = function () {
 monsterImage.src = "images/monstre.png";
 
 // Objet
-var hero = new Joueur("Joueur1", 40, 256);
 var monster = {};
 var monstersCaught = 0;
 
@@ -108,7 +108,7 @@ var update = function (modifier) {
     && hero.y <= (monster.y + 32)
     && monster.y <= (hero.y + 32)
   ) {
-    ++monstersCaught;
+    hero.score++;
     reset();
   }
 };
@@ -132,7 +132,8 @@ var render = function () {
   ctx.font = "24px Helvetica";
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
+  // ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
+  document.getElementById("scoreBoard").innerHTML = "Score : " + hero.score;
 };
 
 // The main game loop
