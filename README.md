@@ -1,8 +1,8 @@
 #esgi-javascript
 
-Elodie Flores
-Kunborribo Hing
-Alexandre Morcrette
+* Elodie Flores
+* Kunborribo Hing
+* Alexandre Morcrette
 
 5IW1
 
